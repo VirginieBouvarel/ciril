@@ -7,6 +7,8 @@ import EmailIcon from './icons/IconEmail.vue'
 import NotificationsIcon from './icons/IconNotifications.vue'
 
 const icons = [StarIcon, SettingsIcon, SupportIcon, EmailIcon, NotificationsIcon];
+const notificationsLength = 4;
+
 </script>
 
 <template>
@@ -17,8 +19,11 @@ const icons = [StarIcon, SettingsIcon, SupportIcon, EmailIcon, NotificationsIcon
 
   <div class="header-menu">
     <template v-for="(icon, index) in icons" :key="icon">
-      <div class="tab-secondary">
+      <div class="tab-secondary relative">
         <component :is="icon"></component>
+        <div v-if="index === 3 && notificationsLength > 0" class="badge">
+          <span>{{ notificationsLength }}</span>
+        </div>
       </div>
       <div v-if="index < icons.length -1" class="spacer"></div>
     </template>
@@ -56,5 +61,25 @@ const icons = [StarIcon, SettingsIcon, SupportIcon, EmailIcon, NotificationsIcon
 }
 .avatar {
   max-height: 40px;
+}
+.badge {
+  position: absolute;
+  left: 20px;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+  background-color: orange;
+  border-radius: 50%;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.badge span {
+  color: var(--vt-c-white);
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.04em;
 }
 </style>
