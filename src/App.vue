@@ -11,17 +11,13 @@ import CardsList from './components/CardsList.vue'
     <TopContentTools/>
     <TopNav/>
   </header>
-  <main class="wrapper bg-orange">
+  <main class="wrapper">
     <CardsList />
   </main>
 </template>
 
 <style scoped>
-/* .bg-orange {
-  background: orange;
-} */
 .wrapper {
   padding: 24px;
 }
-
 </style>

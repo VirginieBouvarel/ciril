@@ -3,24 +3,12 @@ import CardItem from './CardItem.vue'
 </script>
 
 <template>
-    <div class="cards-list bg-green">
-      <CardItem />
-      <CardItem />
-      <CardItem />
-      <CardItem />
-      <CardItem />
-      <CardItem />
-      <CardItem />
-      <CardItem />
-      <CardItem />
-      <CardItem />
+    <div class="cards-list">
+      <CardItem v-for="(item, index) in 10" :key="index"/>
     </div>
 </template>
 
 <style scoped>
-/* .bg-green {
-  background: yellowgreen;
-} */
 .cards-list {
   display: flex;
   flex-wrap: wrap;

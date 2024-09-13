@@ -5,6 +5,8 @@ import StarIcon from './icons/IconStar.vue'
 import SupportIcon from './icons/IconSupport.vue'
 import EmailIcon from './icons/IconEmail.vue'
 import NotificationsIcon from './icons/IconNotifications.vue'
+
+const icons = [StarIcon, SettingsIcon, SupportIcon, EmailIcon, NotificationsIcon];
 </script>
 
 <template>
@@ -12,28 +14,17 @@ import NotificationsIcon from './icons/IconNotifications.vue'
   <div class="tab">
     <HomeIcon />
   </div>
+
   <div class="header-menu">
-    <div class="tab-secondary">
-      <StarIcon />
-    </div>
-    <div class="spacer"></div>
-    <div class="tab-secondary">
-      <SettingsIcon />
-    </div>
-    <div class="spacer"></div>
-    <div class="tab-secondary">
-      <SupportIcon />
-    </div>
-    <div class="spacer"></div>
-    <div class="tab-secondary">
-      <EmailIcon />
-    </div>
-    <div class="spacer"></div>
-    <div class="tab-secondary last">
-      <NotificationsIcon />
-    </div>
+    <template v-for="(icon, index) in icons" :key="icon">
+      <div class="tab-secondary">
+        <component :is="icon"></component>
+      </div>
+      <div v-if="index < icons.length -1" class="spacer"></div>
+    </template>
+
     <div class="avatar">
-      <img src="./../assets/__avatar_url.png" alt="avatar"/>
+      <img src="./../assets/__avatar_url.png" alt="Avatar"/>
     </div>
   </div>
 </div>
