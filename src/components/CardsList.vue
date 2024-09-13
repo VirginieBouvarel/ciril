@@ -1,11 +1,15 @@
 <script setup>
+import data from '../../data.json'
 import CardItem from './CardItem.vue'
+import { ref } from 'vue';
+
+const cardsData = ref([...data]);
 </script>
 
 <template>
-    <div class="cards-list">
-      <CardItem v-for="(item, index) in 10" :key="index"/>
-    </div>
+  <div class="cards-list">
+    <CardItem v-for="item in cardsData" :key="item.id" :item="item"/>
+  </div>
 </template>
 
 <style scoped>

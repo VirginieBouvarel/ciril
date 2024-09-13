@@ -6,6 +6,13 @@ import BrushIcon from './icons/IconBrush.vue'
 import FileCopyIcon from './icons/IconFileCopy.vue'
 import DeleteIcon from './icons/IconDelete.vue'
 import MoreHorizIcon from './icons/IconMoreHoriz.vue'
+import { computed } from 'vue';
+
+const props = defineProps({
+	item: { type: Object, required: true },
+});
+
+const modificationDate = computed(() => new Intl.DateTimeFormat('fr-FR').format(props.item.modificationDate));
 
 const icons = [RemoveRedEyeIcon, BrushIcon, FileCopyIcon, DeleteIcon, MoreHorizIcon];
 </script>
@@ -16,20 +23,20 @@ const icons = [RemoveRedEyeIcon, BrushIcon, FileCopyIcon, DeleteIcon, MoreHorizI
         <div class="card-header-checkbox"></div>
         <p class="card-author">
           <PublicAvatarIcon class="card-author-icon"/>
-          <span class="title title-size-1">John Doe</span>
+          <span class="title title-size-1">{{ props.item.userName }}</span>
         </p>
       </div>
       <div class="card-media">
-        <PublicIcon/>
-        <img src="../assets/picture.png" alt="Miniature Google Pap"/>
+        <img v-if="props.item.image" :src="`./src/assets/${props.item.image}`" alt="Miniature Google Pap"/>
+        <PublicIcon v-else />
       </div>
       <div class="card-content">
-        <p class="title title-size-2">Et voluptate elit dolore elit et nostrud</p>
-        <p>Aliqua voluptate laboris eiusmod sit occaecat. Dolor irure incididunt labor ...</p>
+        <p class="title title-size-2">{{ props.item.name }}</p>
+        <p class="line-clamp">{{ props.item.description }}</p>
         <div class="card-content-meta">
           <div>
             <p class="title title-size-3">Modifié le</p>
-            <p>04/10/2020</p>
+            <p>{{ modificationDate }}</p>
           </div>
           <div class="to-right">
             <p class="title title-size-3">Application</p>
@@ -127,5 +134,15 @@ const icons = [RemoveRedEyeIcon, BrushIcon, FileCopyIcon, DeleteIcon, MoreHorizI
     width: 36px;
     height: 36px;
     border: none;
-  }
+}
+.line-clamp {
+  width: 248px;
+  overflow: hidden;
+  display: -webkit-box;
+  overflow-wrap: break-word;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
 </style>
