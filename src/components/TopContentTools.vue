@@ -1,6 +1,9 @@
 <script setup>
 import AddIcon from './icons/IconAdd.vue'
 import SearchIcon from './icons/IconSearch.vue'
+
+const props = defineProps(['modelValue'])
+const emit = defineEmits(['update:modelValue'])
 </script>
 
 <template>
@@ -19,7 +22,8 @@ import SearchIcon from './icons/IconSearch.vue'
     <div class="tool-box">
       <span class="tool-title search-title">Rechercher</span>
       <div class="search-input">
-        <input class="search-input-text" type="text" placeholder="Nom d'une ressource"/>
+        <input :value="props.modelValue" @input="emit('update:modelValue', $event.target.value)" class="search-input-text" type="text" placeholder="Nom d'une ressource"/>
+
         <button class="search-input-button">
           <SearchIcon />
         </button>
