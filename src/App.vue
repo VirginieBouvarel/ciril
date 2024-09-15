@@ -3,19 +3,24 @@ import TheHeader from './components/TheHeader.vue'
 import TopContentTools from './components/TopContentTools.vue'
 import TopNav from './components/TopNav.vue'
 import CardsList from './components/CardsList.vue'
+
 import { computed, ref, onMounted  } from 'vue';
 import { useGenerateData } from './composables/useGenerateData';
 
-const { items, generateFakeData } = useGenerateData(10);
+// Génération d'items
+const { items, generateFakeData, generateSingleItem  } = useGenerateData();
 
-onMounted(() => generateFakeData());
+onMounted(() => generateFakeData(10));
 
+function addCard() {
+  generateSingleItem();
+}
+
+// Filtrage des items
 const searchQuery = ref('');
 
 const filteredCards = computed(() => {
-  if (searchQuery.value.length < 3) {
-    return items.value;
-  }
+  if (searchQuery.value.length < 3) return items.value;
   return items.value.filter((card) => card.name.toLowerCase().includes(searchQuery.value.toLowerCase()))
 });
 
@@ -27,7 +32,7 @@ function handleSearch(event) {
 <template>
   <header>
     <TheHeader/>
-    <TopContentTools :modelValue="searchQuery" @update:modelValue="handleSearch"/>
+    <TopContentTools :modelValue="searchQuery" @update:modelValue="handleSearch" @add="addCard"/>
     <TopNav/>
   </header>
   <main class="wrapper">

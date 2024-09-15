@@ -3,7 +3,7 @@ import AddIcon from './icons/IconAdd.vue'
 import SearchIcon from './icons/IconSearch.vue'
 
 const props = defineProps(['modelValue'])
-const emit = defineEmits(['update:modelValue'])
+const emit = defineEmits(['update:modelValue', 'add'])
 </script>
 
 <template>
@@ -11,7 +11,7 @@ const emit = defineEmits(['update:modelValue'])
     <div class="tool-box">
       <span class="tool-title">Créer</span>
       <div>
-        <button class="add-button">
+        <button class="add-button" @click="emit('add')">
           <AddIcon />
         </button>
       </div>
