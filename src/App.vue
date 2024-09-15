@@ -1,19 +1,22 @@
 <script setup>
-import data from '../data.json'
 import TheHeader from './components/TheHeader.vue'
 import TopContentTools from './components/TopContentTools.vue'
 import TopNav from './components/TopNav.vue'
 import CardsList from './components/CardsList.vue'
-import { computed, ref } from 'vue';
+import { computed, ref, onMounted  } from 'vue';
+import { useGenerateData } from './composables/useGenerateData';
 
-const cardsData = ref([...data]);
+const { items, generateFakeData } = useGenerateData(10);
+
+onMounted(() => generateFakeData());
+
 const searchQuery = ref('');
 
 const filteredCards = computed(() => {
   if (searchQuery.value.length < 3) {
-    return cardsData.value;
+    return items.value;
   }
-  return cardsData.value.filter((card) => card.name.toLowerCase().includes(searchQuery.value.toLowerCase()))
+  return items.value.filter((card) => card.name.toLowerCase().includes(searchQuery.value.toLowerCase()))
 });
 
 function handleSearch(event) {
