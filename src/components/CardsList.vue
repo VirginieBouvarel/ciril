@@ -1,14 +1,16 @@
 <script setup>
-import data from '../../data.json'
 import CardItem from './CardItem.vue'
-import { ref } from 'vue';
 
-const cardsData = ref([...data]);
+const props = defineProps({
+	items: { type: Array, required: true },
+});
+
+console.log(props.items);
 </script>
 
 <template>
   <div class="cards-list">
-    <CardItem v-for="item in cardsData" :key="item.id" :item="item"/>
+    <CardItem v-for="item in props.items" :key="item.id" :item="item"/>
   </div>
 </template>
 

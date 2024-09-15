@@ -1,8 +1,12 @@
 <script setup>
+import data from '../data.json'
 import TheHeader from './components/TheHeader.vue'
 import TopContentTools from './components/TopContentTools.vue'
 import TopNav from './components/TopNav.vue'
 import CardsList from './components/CardsList.vue'
+import { ref } from 'vue';
+
+const cardsData = ref([...data]);
 </script>
 
 <template>
@@ -12,7 +16,7 @@ import CardsList from './components/CardsList.vue'
     <TopNav/>
   </header>
   <main class="wrapper">
-    <CardsList />
+    <CardsList :items="cardsData"/>
   </main>
 </template>
 
