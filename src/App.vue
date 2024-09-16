@@ -30,7 +30,7 @@ function handleSearch(event) {
 </script>
 
 <template>
-  <header>
+  <header class="sticky-header">
     <TheHeader/>
     <TopContentTools :modelValue="searchQuery" @update:modelValue="handleSearch" @add="addCard"/>
     <TopNav/>
@@ -43,5 +43,13 @@ function handleSearch(event) {
 <style scoped>
 .wrapper {
   padding: 24px;
+}
+
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000; 
+  background-color: white; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 </style>
