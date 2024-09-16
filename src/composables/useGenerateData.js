@@ -11,7 +11,7 @@ export function useGenerateData() {
       modificationDate: faker.date.recent().getTime(),
       userName: faker.person.fullName(),
       name: _.capitalize(faker.lorem.words(3)),
-      description: faker.lorem.sentence(),
+      description: faker.lorem.lines({ min: 3, max: 5 }),
       iconClass: 'icon-' + faker.helpers.arrayElement(['home', 'user', 'settings', 'help']),
       image: faker.helpers.arrayElement(['picture.png', null])
     };
