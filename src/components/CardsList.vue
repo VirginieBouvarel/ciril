@@ -9,9 +9,10 @@ console.log(props.items);
 </script>
 
 <template>
-  <div class="cards-list">
+  <section  class="cards-list">
+    <h2 class="sr-only">Liste des cartes</h2>
     <CardItem v-for="item in props.items" :key="item.id" :item="item"/>
-  </div>
+  </section>
 </template>
 
 <style scoped>

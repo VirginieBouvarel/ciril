@@ -12,46 +12,48 @@ const notificationsLength = 4;
 </script>
 
 <template>
-<div class="header">
-  <div class="tab">
+<nav class="navbar">
+  <div class="home-tab">
     <HomeIcon />
   </div>
 
-  <div class="header-menu">
+  <ul class="menu-tabs">
     <template v-for="(icon, index) in icons" :key="icon">
-      <div class="tab-secondary relative">
+      <li class="tab relative">
         <component :is="icon"></component>
         <div v-if="index === 3 && notificationsLength > 0" class="badge">
           <span>{{ notificationsLength }}</span>
         </div>
-      </div>
-      <div v-if="index < icons.length -1" class="spacer"></div>
+      </li>
+      <li v-if="index < icons.length -1" class="spacer"></li>
     </template>
 
     <div class="avatar">
       <img src="./../assets/__avatar_url.png" alt="Avatar"/>
     </div>
-  </div>
-</div>
+  </ul>
+</nav>
 </template>
 
 <style scoped>
-.header {
+.navbar {
   display: flex;
   align-items: center;
   height: 40px;
 }
-.tab {
+.home-tab {
   padding: 8px 16px;
   background: var(--vt-c-white);
   margin-right: auto;
   height: 40px;
 }
-.header-menu {
+.menu-tabs {
   display: flex;
   align-items: center;
+  padding: 0;
+  margin: 0;
 }
-.tab-secondary {
+.tab {
   padding: 8px 12px;
 }
 .spacer {
