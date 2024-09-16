@@ -11,7 +11,7 @@ const emit = defineEmits(['update:modelValue', 'add'])
     <div class="tool-box">
       <span class="tool-title">Créer</span>
       <div>
-        <button class="add-button clickable" @click="emit('add')">
+        <button class="add-button clickable" @click="emit('add')" aria-label="Créer une nouvelle ressource">
           <AddIcon />
         </button>
       </div>
@@ -22,14 +22,14 @@ const emit = defineEmits(['update:modelValue', 'add'])
     <div class="tool-box">
       <span class="tool-title search-title">Rechercher</span>
       <div class="search-input">
-        <input :value="props.modelValue" @input="emit('update:modelValue', $event.target.value)" class="search-input-text" type="text" placeholder="Nom d'une ressource"/>
+        <label for="search-input" class="sr-only">Rechercher une ressource</label>
+        <input id="search-input" :value="props.modelValue" @input="emit('update:modelValue', $event.target.value)" class="search-input-text" type="text" placeholder="Nom d'une ressource"/>
 
-        <button class="search-input-button clickable">
+        <button class="search-input-button clickable" aria-label="Rechercher">
           <SearchIcon />
         </button>
       </div>
     </div> 
-
   </div>
 </template>
 

@@ -20,7 +20,7 @@ const icons = [RemoveRedEyeIcon, BrushIcon, FileCopyIcon, DeleteIcon, MoreHorizI
 <template>
     <article  class="card-item">
       <header  class="card-header">
-        <div class="card-header-checkbox"></div>
+        <input class="card-header-checkbox" role="checkbox" aria-checked="false" aria-label="Sélectionner cet élément">
         <p class="card-author">
           <PublicAvatarIcon class="card-author-icon"/>
           <span class="title title-size-1">{{ props.item.userName }}</span>
@@ -28,8 +28,8 @@ const icons = [RemoveRedEyeIcon, BrushIcon, FileCopyIcon, DeleteIcon, MoreHorizI
       </header>
       <main>
         <figure  class="card-media">
-          <img v-if="props.item.image" :src="`./src/assets/${props.item.image}`" alt="Miniature Google Pap"/>
-          <PublicIcon v-else />
+          <img v-if="props.item.image" :src="`./src/assets/${props.item.image}`" alt="Miniature Google Map"/>
+          <PublicIcon v-else aria-label="Icône par défaut"/>
         </figure>
         <section  class="card-content">
           <h2  class="title title-size-2">{{ props.item.name }}</h2>
@@ -47,7 +47,7 @@ const icons = [RemoveRedEyeIcon, BrushIcon, FileCopyIcon, DeleteIcon, MoreHorizI
         </section>
       </main>
       <footer class="card-actions">
-          <button v-for="icon in icons" :key="icon" class="card-actions-button" >
+          <button v-for="icon in icons" :key="icon" class="card-actions-button" aria-label="Action associée à l'icône">
             <component :is="icon"></component>
           </button>
       </footer>

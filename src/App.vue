@@ -30,13 +30,13 @@ function handleSearch(event) {
 </script>
 
 <template>
-  <header class="sticky-header">
+  <header class="sticky-header" role="banner">
     <TheHeader/>
-    <TopContentTools :modelValue="searchQuery" @update:modelValue="handleSearch" @add="addCard"/>
+    <TopContentTools :modelValue="searchQuery" @update:modelValue="handleSearch" @add="addCard" role="search" aria-label="Outil de recherche et ajout de cartes"/>
     <TopNav/>
   </header>
-  <main class="wrapper">
-    <CardsList :items="filteredCards"/>
+  <main class="wrapper" role="main">
+    <CardsList :items="filteredCards" aria-label="Liste de cartes filtrées"/>
   </main>
 </template>
 

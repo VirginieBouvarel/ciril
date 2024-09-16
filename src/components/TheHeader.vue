@@ -12,15 +12,19 @@ const notificationsLength = 4;
 </script>
 
 <template>
-<nav class="navbar">
+<nav class="navbar" role="navigation" aria-label="Barre de navigation">
   <div class="home-tab">
-    <HomeIcon />
+    <button class="hidden-button" aria-label="Accueil">
+      <HomeIcon />
+    </button>
   </div>
 
   <ul class="menu-tabs">
     <template v-for="(icon, index) in icons" :key="icon">
       <li class="tab relative">
-        <component :is="icon"></component>
+        <button class="hidden-button" aria-label="Icône de menu">
+          <component :is="icon"></component>
+        </button>
         <div v-if="index === 3 && notificationsLength > 0" class="badge">
           <span>{{ notificationsLength }}</span>
         </div>
