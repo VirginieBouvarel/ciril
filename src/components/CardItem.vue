@@ -1,11 +1,7 @@
 <script setup>
-import PublicAvatarIcon from './icons/IconPublicAvatar.vue'
 import PublicIcon from './icons/IconPublic.vue'
-import RemoveRedEyeIcon from './icons/IconRemoveRedEye.vue'
-import BrushIcon from './icons/IconBrush.vue'
-import FileCopyIcon from './icons/IconFileCopy.vue'
-import DeleteIcon from './icons/IconDelete.vue'
-import MoreHorizIcon from './icons/IconMoreHoriz.vue'
+import RoleIcon from './RoleIcon.vue'
+import ActionsButtons from './ActionsButtons.vue'
 import { computed } from 'vue';
 
 const props = defineProps({
@@ -13,8 +9,6 @@ const props = defineProps({
 });
 
 const modificationDate = computed(() => new Intl.DateTimeFormat('fr-FR').format(props.item.modificationDate));
-
-const icons = [RemoveRedEyeIcon, BrushIcon, FileCopyIcon, DeleteIcon, MoreHorizIcon];
 </script>
 
 <template>
@@ -22,7 +16,7 @@ const icons = [RemoveRedEyeIcon, BrushIcon, FileCopyIcon, DeleteIcon, MoreHorizI
       <header  class="card-header">
         <input class="card-header-checkbox" role="checkbox" aria-checked="false" aria-label="Sélectionner cet élément">
         <p class="card-author">
-          <PublicAvatarIcon class="card-author-icon"/>
+          <RoleIcon :iconClass="props.item.iconClass"/>
           <span class="title title-size-1">{{ props.item.userName }}</span>
         </p>
       </header>
@@ -47,9 +41,7 @@ const icons = [RemoveRedEyeIcon, BrushIcon, FileCopyIcon, DeleteIcon, MoreHorizI
         </section>
       </main>
       <footer class="card-actions">
-          <button v-for="icon in icons" :key="icon" class="card-actions-button" aria-label="Action associée à l'icône">
-            <component :is="icon"></component>
-          </button>
+        <ActionsButtons  />
       </footer>
     </article>
 </template>
@@ -96,7 +88,6 @@ const icons = [RemoveRedEyeIcon, BrushIcon, FileCopyIcon, DeleteIcon, MoreHorizI
     transform: translateY(0);
   }
 }
-
 .card-header {
   height: 52px;
   border-radius: 8px 8px 0 0;
@@ -116,9 +107,6 @@ const icons = [RemoveRedEyeIcon, BrushIcon, FileCopyIcon, DeleteIcon, MoreHorizI
   height: 52px;
   display: flex;
   align-items: center;
-}
-.card-author-icon {
-  margin-right: 10px;
 }
 .card-media {
   height: 120px;
@@ -144,12 +132,6 @@ const icons = [RemoveRedEyeIcon, BrushIcon, FileCopyIcon, DeleteIcon, MoreHorizI
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.card-actions-button {
-    background: var(--vt-c-white);
-    width: 36px;
-    height: 36px;
-    border: none;
 }
 .line-clamp {
   width: 248px;
