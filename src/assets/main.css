@@ -3,3 +3,12 @@
 .relative {
   position: relative;
 }
+
+.clickable {
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out; /* Pour l'animation de clic */
+}
+
+.clickable:active {
+  transform: scale(0.95); 
+}
