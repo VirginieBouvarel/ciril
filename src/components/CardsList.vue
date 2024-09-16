@@ -20,4 +20,10 @@ console.log(props.items);
   flex-wrap: wrap;
   gap: 24px;
 }
+
+@media (max-width: 630px) {
+  .cards-list {
+    justify-content: center; 
+  }
+}
 </style>

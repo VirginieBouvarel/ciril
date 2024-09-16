@@ -49,6 +49,12 @@ const emit = defineEmits(['update:modelValue', 'add'])
   flex-direction: column;
   align-items: center;
 }
+@media (max-width: 325px) {
+  .tool-box {
+    padding: 10px 22px;
+  }
+}
+
 .tool-title {
   font-size: 12px;
   line-height: 16px;
