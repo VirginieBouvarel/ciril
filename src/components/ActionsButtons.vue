@@ -9,7 +9,7 @@ const icons = [RemoveRedEyeIcon, BrushIcon, FileCopyIcon, DeleteIcon, MoreHorizI
 </script>
 
 <template>
-  <button v-for="icon in icons" :key="icon" class="actions-button" aria-label="Action associée à l'icône">
+  <button v-for="icon in icons" :key="icon" class="actions-button clickable" aria-label="Action associée à l'icône">
     <component :is="icon"></component>
   </button>
 </template>
