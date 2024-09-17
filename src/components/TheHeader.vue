@@ -15,7 +15,7 @@ const notificationsLength = 4;
 <template>
 <nav class="navbar" role="navigation" aria-label="Barre de navigation">
   <div class="home-tab">
-    <button class="hidden-button" aria-label="Accueil">
+    <button class="hidden-button clickable" aria-label="Accueil">
       <HomeIcon />
     </button>
   </div>
@@ -23,7 +23,7 @@ const notificationsLength = 4;
   <ul class="menu-tabs">
     <template v-for="(icon, index) in icons" :key="icon">
       <li class="tab relative">
-        <button class="hidden-button" aria-label="Icône de menu">
+        <button class="hidden-button clickable" aria-label="Icône de menu">
           <component :is="icon"></component>
         </button>
         <NotificationsBadge v-if="index === 3 && notificationsLength > 0">
