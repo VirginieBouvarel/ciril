@@ -29,3 +29,7 @@
 .clickable:active {
   transform: scale(0.95); 
 }
+
+.clickable:hover {
+  cursor: pointer; 
+}
