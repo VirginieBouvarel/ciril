@@ -52,7 +52,7 @@ function handleSearch(event) {
   position: sticky;
   top: 0;
   z-index: 1000; 
-  background-color: white; 
+  background-color: var(--vt-c-white); 
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 </style>
