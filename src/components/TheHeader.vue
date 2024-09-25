@@ -49,17 +49,19 @@ const notificationsCount = 0;
 </nav>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+@use '@/assets/unit';
+
 .navbar {
   display: flex;
   align-items: center;
-  height: 40px;
+  height: unit.pxToRem(40px);
 }
 .home-tab {
-  padding: 8px 16px;
+  padding: unit.pxToRem(8px) unit.pxToRem(16px);
   background: var(--vt-c-white);
   margin-right: auto;
-  height: 40px;
+  height: unit.pxToRem(40px);
 }
 .menu-tabs {
   display: flex;
@@ -68,14 +70,14 @@ const notificationsCount = 0;
   margin: 0;
 }
 .tab {
-  padding: 8px 12px;
+  padding: unit.pxToRem(8px) unit.pxToRem(12px);
 }
 .spacer {
-  width: 1px;
-  height: 28px;
+  width: unit.pxToRem(1px);
+  height: unit.pxToRem(28px);
   background: var(--vt-c-divider);
 }
 .avatar {
-  max-height: 40px;
+  max-height: unit.pxToRem(40px);
 }
 </style>

@@ -41,9 +41,11 @@ function handleSearch(event) {
   </main>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+@use '@/assets/unit';
+
 .wrapper {
-  padding: 24px;
+  padding: unit.pxToRem(24px);
 }
 
 .sticky-header {

@@ -33,49 +33,51 @@ const emit = defineEmits(['update:modelValue', 'add'])
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+@use '@/assets/unit';
+
 .top-content-tools {
-  height: 78px;
+  height: unit.pxToRem(78px);
   background-color: var(--vt-c-white);
-  border-bottom: 1px solid var(--vt-c-divider-soft);
+  border-bottom: unit.pxToRem(1px) solid var(--vt-c-divider-soft);
   display: flex;
 }
 .tool-box {
   background: var(--vt-c-white);
   border: none;
-  height: 77px;
-  padding: 10px 24px;
+  height: unit.pxToRem(77px);
+  padding: unit.pxToRem(10px) unit.pxToRem(24px);
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-@media (max-width: 325px) {
+@media (max-width: unit.pxToRem(325px)) {
   .tool-box {
-    padding: 10px 22px;
+    padding: unit.pxToRem(10px) unit.pxToRem(22px);
   }
 }
 
 .tool-title {
-  font-size: 12px;
-  line-height: 16px;
+  font-size: unit.pxToRem(12px);
+  line-height: unit.convertLineHeight(12px, 16px);
   color: var(--color-heading);
 }
 .search-title {
   align-self: start;
 }
 .spacer {
-  width: 1px;
-  height: 60px;
+  width: unit.pxToRem(1px);
+  height: unit.pxToRem(60px);
   background: var(--vt-c-divider-soft);
-  margin-top: 10px;
+  margin-top: unit.pxToRem(10px);
 }
 .add-button {
   background: var(--vt-c-blue);
   border: none;
   border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  margin: 10px auto;
+  width: unit.pxToRem(30px);
+  height: unit.pxToRem(30px);
+  margin: unit.pxToRem(10px) auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -84,14 +86,14 @@ const emit = defineEmits(['update:modelValue', 'add'])
   position: relative;
   display: flex;
   align-items: center;
-  height: 30px;
-  width: 190px;
-  margin: 10px 10px 10px 0;
+  height: unit.pxToRem(30px);
+  width: unit.pxToRem(190px);
+  margin: unit.pxToRem(10px) unit.pxToRem(10px) unit.pxToRem(10px) 0;
 }
 .search-input-text {
-  border: 1px solid var(--color-border);
-  border-radius: 6px;
-  padding: 6px 8px;
+  border: unit.pxToRem(1px) solid var(--color-border);
+  border-radius: unit.pxToRem(6px);
+  padding: unit.pxToRem(6px) unit.pxToRem(8px);
 }
 .search-input-text::placeholder {
   font-style: italic;
@@ -102,7 +104,7 @@ const emit = defineEmits(['update:modelValue', 'add'])
   right: 0;
   background: var(--vt-c-blue);
   border: none;
-  border-radius: 0 4px 4px 0;
-  padding: 6px;
+  border-radius: 0 unit.pxToRem(4px) unit.pxToRem(4px) 0;
+  padding: unit.pxToRem(6px);
 }
 </style>

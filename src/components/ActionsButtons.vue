@@ -20,11 +20,13 @@ const icons = [
   </button>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+@use '@/assets/unit';
+
 .actions-button {
     background: var(--vt-c-white);
-    width: 36px;
-    height: 36px;
+    width: unit.pxToRem(36px);
+    height: unit.pxToRem(36px);
     border: none;
 }
 </style>

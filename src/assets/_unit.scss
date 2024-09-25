@@ -1,0 +1,12 @@
+@use 'sass:math';
+
+$html-font-size: 16px;
+$remUnit: 1rem;
+
+@function pxToRem($pxValue) {
+  @return math.div($pxValue, $html-font-size) * $remUnit;
+}
+
+@function convertLineHeight($fontSize, $lineHeight) {
+  @return math.div($lineHeight, $fontSize);
+}

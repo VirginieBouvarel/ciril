@@ -1,3 +1,5 @@
+@use '@/assets/unit';
+
 :root {
   /* color palette */
   --vt-c-white: #ffffff;
@@ -38,10 +40,10 @@ body {
   min-height: 100vh;
   color: var(--color-text);
   background: var(--color-background);
-  line-height: 18px;
+  line-height: unit.convertLineHeight(13px, 18px);
   letter-spacing: 0.004em;
   font-family: 'Roboto', sans-serif;
-  font-size: 13px;
+  font-size: unit.pxToRem(13px);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

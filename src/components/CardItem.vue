@@ -46,42 +46,44 @@ const modificationDate = computed(() => new Intl.DateTimeFormat('fr-FR').format(
     </article>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+@use '@/assets/unit';
+
 .title {
   color: var(--color-heading);
   font-weight: 600;
 }
 .title-size-1 {
-  font-size: 14px;
-  line-height: 20px;
+  font-size: unit.pxToRem(14px);
+  line-height: unit.convertLineHeight(14px, 20px);
   letter-spacing: 0.015em;
 }
 .title-size-2 {
-  font-size: 13px;
-  line-height: 20px;
+  font-size: unit.pxToRem(13px);
+  line-height: unit.convertLineHeight(13px, 20px);
   letter-spacing: 0.015em;
 }
 .title-size-3 {
-  font-size: 12px;
-  line-height: 16px;
+  font-size: unit.pxToRem(12px);
+  line-height: unit.convertLineHeight(12px, 16px);
   letter-spacing: 0.04em;
 }
 .to-right {
   text-align: right;
 }
 .card-item {
-  border-radius: 8px;
+  border-radius: unit.pxToRem(8px);
   background: var(--vt-c-white);
-  width: 280px;
-  height: 407px;
+  width: unit.pxToRem(280px);
+  height: unit.pxToRem(407px);
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(unit.pxToRem(20px));
   animation: fadeInUp 0.5s ease forwards;
 }
 @keyframes fadeInUp {
   0% {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(unit.pxToRem(20px));
   }
   100% {
     opacity: 1;
@@ -89,35 +91,35 @@ const modificationDate = computed(() => new Intl.DateTimeFormat('fr-FR').format(
   }
 }
 .card-header {
-  height: 52px;
-  border-radius: 8px 8px 0 0;
+  height: unit.pxToRem(52px);
+  border-radius: unit.pxToRem(8px) unit.pxToRem(8px) 0 0;
   display: flex;
   align-items: center;
-  padding: 8px;
+  padding: unit.pxToRem(8px);
 }
 .card-header-checkbox {
-  margin-right: 24px;
-  width: 16px;
-  height: 16px;
-  border: 1px solid var(--vt-c-divider);
-  border-radius: 3px;
+  margin-right: unit.pxToRem(24px);
+  width: unit.pxToRem(16px);
+  height: unit.pxToRem(16px);
+  border: unit.pxToRem(1px) solid var(--vt-c-divider);
+  border-radius: unit.pxToRem(3px);
 }
 .card-author {
   color: var(--color-heading);
-  height: 52px;
+  height: unit.pxToRem(52px);
   display: flex;
   align-items: center;
 }
 .card-media {
-  height: 120px;
+  height: unit.pxToRem(120px);
   background-color: var(--color-background-soft);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .card-content {
-  height: 183px;
-  padding: 16px;
+  height: unit.pxToRem(183px);
+  padding: unit.pxToRem(16px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -128,13 +130,13 @@ const modificationDate = computed(() => new Intl.DateTimeFormat('fr-FR').format(
   justify-content: space-between;
 }
 .card-actions {
-  height: 52px;
+  height: unit.pxToRem(52px);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .line-clamp {
-  width: 248px;
+  width: unit.pxToRem(248px);
   overflow: hidden;
   display: -webkit-box;
   overflow-wrap: break-word;

@@ -18,9 +18,11 @@ const roleIconMapping = {
   <component :is="roleIconMapping[props.iconClass]" class="role-icon"/>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+@use '@/assets/unit';
+
 .role-icon {
-  margin-right: 10px;
+  margin-right: unit.pxToRem(10px);
 }
 .role-icon :deep(path) {
   fill: var(--color-heading);

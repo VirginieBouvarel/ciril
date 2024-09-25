@@ -4,10 +4,12 @@
   <div class="top-nav"></div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+@use '@/assets/unit';
+
 .top-nav {
-  height: 32px;
+  height: unit.pxToRem(32px);
   background-color: var(--vt-c-white);
-  border-bottom: 1px solid var(--vt-c-divider-soft);
+  border-bottom: unit.pxToRem(1px) solid var(--vt-c-divider-soft);
 }
 </style>

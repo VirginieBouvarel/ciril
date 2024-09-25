@@ -13,14 +13,16 @@ const props = defineProps({
   </section>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+@use '@/assets/unit';
+
 .cards-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 24px;
+  gap: unit.pxToRem(24px);
 }
 
-@media (max-width: 630px) {
+@media (max-width: unit.pxToRem(630px)) {
   .cards-list {
     justify-content: center; 
   }
