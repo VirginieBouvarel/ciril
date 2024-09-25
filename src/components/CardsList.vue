@@ -4,8 +4,6 @@ import CardItem from './CardItem.vue'
 const props = defineProps({
 	items: { type: Array, required: true },
 });
-
-console.log(props.items);
 </script>
 
 <template>
