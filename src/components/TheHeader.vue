@@ -7,9 +7,15 @@ import EmailIcon from './icons/IconEmail.vue'
 import NotificationsIcon from './icons/IconNotifications.vue'
 import CountingBadge from '@/components/CountingBadge.vue'
 
-const icons = [StarIcon, SettingsIcon, SupportIcon, EmailIcon, NotificationsIcon];
+const icons = [
+  { id: 0, component: StarIcon },
+  { id: 1, component: SettingsIcon },
+  { id: 2, component: SupportIcon },
+  { id: 3, component: EmailIcon },
+  { id: 4, component: NotificationsIcon },
+]
 const emailCount = 4;
-
+const notificationsCount = 0;
 </script>
 
 <template>
@@ -21,16 +27,19 @@ const emailCount = 4;
   </div>
 
   <ul class="menu-tabs">
-    <template v-for="(icon, index) in icons" :key="icon">
+    <template v-for="icon in icons" :key="icon.id">
       <li class="tab relative">
         <button class="hidden-button clickable" aria-label="Icône de menu">
-          <component :is="icon"></component>
+          <component :is="icon.component"></component>
         </button>
-        <CountingBadge v-if="index === 3 && emailCount > 0">
+        <CountingBadge v-if="icon.id === 3 && emailCount > 0">
           {{ emailCount }}
         </CountingBadge>
+        <CountingBadge v-if="icon.id === 4 && notificationsCount > 0">
+          {{ notificationsCount }}
+        </CountingBadge>
       </li>
-      <li v-if="index < icons.length -1" class="spacer"></li>
+      <li v-if="icon.id < icons.length -1" class="spacer"></li>
     </template>
 
     <div class="avatar">

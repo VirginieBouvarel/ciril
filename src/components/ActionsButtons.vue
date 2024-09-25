@@ -5,12 +5,18 @@ import FileCopyIcon from './icons/IconFileCopy.vue'
 import DeleteIcon from './icons/IconDelete.vue'
 import MoreHorizIcon from './icons/IconMoreHoriz.vue'
 
-const icons = [RemoveRedEyeIcon, BrushIcon, FileCopyIcon, DeleteIcon, MoreHorizIcon];
+const icons = [
+  { id: 0, component: RemoveRedEyeIcon },
+  { id: 1, component: BrushIcon },
+  { id: 2, component: FileCopyIcon },
+  { id: 3, component: DeleteIcon },
+  { id: 4, component: MoreHorizIcon },
+]
 </script>
 
 <template>
-  <button v-for="icon in icons" :key="icon" class="actions-button clickable" aria-label="Action associée à l'icône">
-    <component :is="icon"></component>
+  <button v-for="icon in icons" :key="icon.id" class="actions-button clickable" aria-label="Action associée à l'icône">
+    <component :is="icon.component"></component>
   </button>
 </template>
 

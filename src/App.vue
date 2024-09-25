@@ -17,10 +17,11 @@ function addCard() {
 }
 
 // Filtrage des items
+const MINIMAL_INPUT_SIZE_BEFORE_SEARCH = 3;
 const searchQuery = ref('');
 
 const filteredCards = computed(() => {
-  if (searchQuery.value.length < 3) return items.value;
+  if (searchQuery.value.length < MINIMAL_INPUT_SIZE_BEFORE_SEARCH) return items.value;
   return items.value.filter((card) => card.name.toLowerCase().includes(searchQuery.value.toLowerCase()))
 });
 
