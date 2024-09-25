@@ -13,11 +13,11 @@ export function useGenerateData() {
       name: _.capitalize(faker.lorem.words(3)),
       description: faker.lorem.lines({ min: 3, max: 5 }),
       iconClass: faker.helpers.arrayElement(['admin', 'user', 'guest']),
-      image: faker.helpers.arrayElement(['picture.png', null])
+      image: faker.helpers.arrayElement(['mapLyon.png', null])
     };
   }
 
-  function generateFakeData(count = 10) {
+  function generateMultipleItems(count = 10) {
     const data = [];
     for (let i = 0; i < count; i++) {
       data.push(generateItem());
@@ -31,7 +31,7 @@ export function useGenerateData() {
 
   return {
     items,
-    generateFakeData,
+    generateMultipleItems,
     generateSingleItem
   };
 }

@@ -8,9 +8,9 @@ import { computed, ref, onMounted  } from 'vue';
 import { useGenerateData } from './composables/useGenerateData';
 
 // Génération d'items
-const { items, generateFakeData, generateSingleItem  } = useGenerateData();
+const { items, generateMultipleItems, generateSingleItem  } = useGenerateData();
 
-onMounted(() => generateFakeData(10));
+onMounted(() => generateMultipleItems(10));
 
 function addCard() {
   generateSingleItem();
