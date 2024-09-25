@@ -5,10 +5,10 @@ import StarIcon from './icons/IconStar.vue'
 import SupportIcon from './icons/IconSupport.vue'
 import EmailIcon from './icons/IconEmail.vue'
 import NotificationsIcon from './icons/IconNotifications.vue'
-import NotificationsBadge from '@/components/Notificationsbadge.vue'
+import CountingBadge from '@/components/CountingBadge.vue'
 
 const icons = [StarIcon, SettingsIcon, SupportIcon, EmailIcon, NotificationsIcon];
-const notificationsLength = 4;
+const emailCount = 4;
 
 </script>
 
@@ -26,9 +26,9 @@ const notificationsLength = 4;
         <button class="hidden-button clickable" aria-label="Icône de menu">
           <component :is="icon"></component>
         </button>
-        <NotificationsBadge v-if="index === 3 && notificationsLength > 0">
-          {{ notificationsLength }}
-        </NotificationsBadge>
+        <CountingBadge v-if="index === 3 && emailCount > 0">
+          {{ emailCount }}
+        </CountingBadge>
       </li>
       <li v-if="index < icons.length -1" class="spacer"></li>
     </template>
