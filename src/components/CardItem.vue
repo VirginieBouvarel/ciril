@@ -14,7 +14,7 @@ const modificationDate = computed(() => new Intl.DateTimeFormat('fr-FR').format(
 <template>
     <article  class="card-item">
       <header  class="card-header">
-        <input class="card-header-checkbox" role="checkbox" aria-checked="false" aria-label="Sélectionner cet élément">
+        <input class="card-header-checkbox" type="checkbox" aria-checked="false" aria-label="Sélectionner cet élément">
         <p class="card-author">
           <RoleIcon :iconClass="props.item.iconClass"/>
           <span class="title title-size-1">{{ props.item.userName }}</span>
@@ -98,12 +98,18 @@ const modificationDate = computed(() => new Intl.DateTimeFormat('fr-FR').format(
   padding: unit.pxToRem(8px);
 }
 .card-header-checkbox {
+  appearance: none;
   margin-right: unit.pxToRem(24px);
   width: unit.pxToRem(16px);
   height: unit.pxToRem(16px);
   border: unit.pxToRem(1px) solid var(--vt-c-divider);
   border-radius: unit.pxToRem(3px);
+
+  &:checked {
+    appearance: auto;
+  }
 }
+
 .card-author {
   color: var(--color-heading);
   height: unit.pxToRem(52px);
