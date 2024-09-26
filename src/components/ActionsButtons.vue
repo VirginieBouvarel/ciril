@@ -4,6 +4,7 @@ import BrushIcon from './icons/IconBrush.vue'
 import FileCopyIcon from './icons/IconFileCopy.vue'
 import DeleteIcon from './icons/IconDelete.vue'
 import MoreHorizIcon from './icons/IconMoreHoriz.vue'
+import BaseButton from '@/components/base/BaseButton.vue';
 
 const icons = [
   { id: 0, component: RemoveRedEyeIcon },
@@ -15,9 +16,9 @@ const icons = [
 </script>
 
 <template>
-  <button v-for="icon in icons" :key="icon.id" class="actions-button clickable" aria-label="Action associée à l'icône">
+  <BaseButton v-for="icon in icons" :key="icon.id" class="actions-button" aria-label="Action associée à l'icône">
     <component :is="icon.component"></component>
-  </button>
+  </BaseButton>
 </template>
 
 <style scoped lang="scss">
@@ -27,6 +28,5 @@ const icons = [
     background: var(--vt-c-white);
     width: unit.pxToRem(36px);
     height: unit.pxToRem(36px);
-    border: none;
 }
 </style>

@@ -1,6 +1,7 @@
 <script setup>
 import AddIcon from './icons/IconAdd.vue'
 import SearchIcon from './icons/IconSearch.vue'
+import BaseButton from '@/components/base/BaseButton.vue';
 
 const props = defineProps(['modelValue'])
 const emit = defineEmits(['update:modelValue', 'add'])
@@ -11,9 +12,9 @@ const emit = defineEmits(['update:modelValue', 'add'])
     <div class="tool-box">
       <span class="tool-title">Créer</span>
       <div>
-        <button class="add-button clickable" @click="emit('add')" aria-label="Créer une nouvelle ressource">
+        <BaseButton class="add-button" @click="emit('add')" aria-label="Créer une nouvelle ressource">
           <AddIcon />
-        </button>
+        </BaseButton>
       </div>
     </div>
 
@@ -25,9 +26,9 @@ const emit = defineEmits(['update:modelValue', 'add'])
         <label for="search-input" class="sr-only">Rechercher une ressource</label>
         <input id="search-input" :value="props.modelValue" @input="emit('update:modelValue', $event.target.value)" class="search-input-text" type="text" placeholder="Nom d'une ressource"/>
 
-        <button class="search-input-button clickable" aria-label="Rechercher">
+        <BaseButton class="search-input-button" @click="emit('add')" aria-label="Rechercher">
           <SearchIcon />
-        </button>
+        </BaseButton>
       </div>
     </div> 
   </div>
@@ -73,7 +74,6 @@ const emit = defineEmits(['update:modelValue', 'add'])
 }
 .add-button {
   background: var(--vt-c-blue);
-  border: none;
   border-radius: 50%;
   width: unit.pxToRem(30px);
   height: unit.pxToRem(30px);
@@ -103,7 +103,6 @@ const emit = defineEmits(['update:modelValue', 'add'])
   position: absolute;
   right: 0;
   background: var(--vt-c-blue);
-  border: none;
   border-radius: 0 unit.pxToRem(4px) unit.pxToRem(4px) 0;
   padding: unit.pxToRem(6px);
 }

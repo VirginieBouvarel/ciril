@@ -6,6 +6,7 @@ import SupportIcon from './icons/IconSupport.vue'
 import EmailIcon from './icons/IconEmail.vue'
 import NotificationsIcon from './icons/IconNotifications.vue'
 import CountingBadge from '@/components/CountingBadge.vue'
+import BaseButton from '@/components/base/BaseButton.vue';
 
 const icons = [
   { id: 0, component: StarIcon },
@@ -21,17 +22,17 @@ const notificationsCount = 0;
 <template>
 <nav class="navbar" role="navigation" aria-label="Barre de navigation">
   <div class="home-tab">
-    <button class="hidden-button clickable" aria-label="Accueil">
+    <BaseButton hidden aria-label="Accueil">
       <HomeIcon />
-    </button>
+    </BaseButton>
   </div>
 
   <ul class="menu-tabs">
     <template v-for="icon in icons" :key="icon.id">
       <li class="tab relative">
-        <button class="hidden-button clickable" aria-label="Icône de menu">
+        <BaseButton hidden aria-label="Icône de menu">
           <component :is="icon.component"></component>
-        </button>
+        </BaseButton>
         <CountingBadge v-if="icon.id === 3 && emailCount > 0">
           {{ emailCount }}
         </CountingBadge>
