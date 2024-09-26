@@ -23,12 +23,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  & span {
+    color: var(--vt-c-white);
+    font-weight: bold;
+    font-size: unit.pxToRem(12px);
+    line-height: unit.convertLineHeight(12px, 16px);
+    letter-spacing: 0.04em;
+  }
 }
-.badge span {
-  color: var(--vt-c-white);
-  font-weight: bold;
-  font-size: unit.pxToRem(12px);
-  line-height: unit.convertLineHeight(12px, 16px);
-  letter-spacing: 0.04em;
-}
+
 </style>

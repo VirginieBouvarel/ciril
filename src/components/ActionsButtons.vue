@@ -25,8 +25,8 @@ const icons = [
 @use '@/assets/unit';
 
 .actions-button {
-    background: var(--vt-c-white);
-    width: unit.pxToRem(36px);
-    height: unit.pxToRem(36px);
+  background: var(--vt-c-white);
+  width: unit.pxToRem(36px);
+  height: unit.pxToRem(36px);
 }
 </style>

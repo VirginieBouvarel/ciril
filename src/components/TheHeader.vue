@@ -57,28 +57,32 @@ const notificationsCount = 0;
   display: flex;
   align-items: center;
   height: unit.pxToRem(40px);
-}
-.home-tab {
-  padding: unit.pxToRem(8px) unit.pxToRem(16px);
-  background: var(--vt-c-white);
-  margin-right: auto;
-  height: unit.pxToRem(40px);
-}
-.menu-tabs {
-  display: flex;
-  align-items: center;
-  padding: 0;
-  margin: 0;
-}
-.tab {
-  padding: unit.pxToRem(8px) unit.pxToRem(12px);
-}
-.spacer {
-  width: unit.pxToRem(1px);
-  height: unit.pxToRem(28px);
-  background: var(--vt-c-divider);
-}
-.avatar {
-  max-height: unit.pxToRem(40px);
+
+  .home-tab {
+    padding: unit.pxToRem(8px) unit.pxToRem(16px);
+    background: var(--vt-c-white);
+    margin-right: auto;
+    height: unit.pxToRem(40px);
+  }
+
+  .menu-tabs {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+
+    .tab {
+      padding: unit.pxToRem(8px) unit.pxToRem(12px);
+    }
+    .spacer {
+      width: unit.pxToRem(1px);
+      height: unit.pxToRem(28px);
+      background: var(--vt-c-divider);
+    }
+  }
+
+  .avatar {
+    max-height: unit.pxToRem(40px);
+  }
 }
 </style>
