@@ -1,10 +1,7 @@
-import { ref } from 'vue';
 import { faker } from '@faker-js/faker'; 
 import _ from 'lodash';
 
 export function useGenerateData() {
-  const items = ref([]); 
-
   function generateItem() {
     return {
       id: faker.string.uuid(),
@@ -22,15 +19,14 @@ export function useGenerateData() {
     for (let i = 0; i < count; i++) {
       data.push(generateItem());
     }
-    items.value = data;
+    return data;
   }
 
   function generateSingleItem() {
-    items.value.push(generateItem());
+    return generateItem();
   }
 
   return {
-    items,
     generateMultipleItems,
     generateSingleItem
   };

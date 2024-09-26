@@ -8,12 +8,13 @@ import { computed, ref, onMounted  } from 'vue';
 import { useGenerateData } from './composables/useGenerateData';
 
 // Génération d'items
-const { items, generateMultipleItems, generateSingleItem  } = useGenerateData();
+const { generateMultipleItems, generateSingleItem  } = useGenerateData();
+const items = ref([]);
 
-onMounted(() => generateMultipleItems(10));
+onMounted(() =>  items.value.push(...generateMultipleItems(10)));
 
 function addCard() {
-  generateSingleItem();
+  items.value.push(generateSingleItem());
 }
 
 // Filtrage des items
